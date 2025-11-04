@@ -1,0 +1,14 @@
+# alert.rules.yml
+groups:
+- name: water_leak_alerts
+  rules:
+  - alert: SlowWaterLeakDetected
+    expr: |
+      avg_over_time(household_water_flow_rate_lpm[30m]) > 0.1 and 
+      stddev_over_time(household_water_flow_rate_lpm[30m]) < 0.05
+    for: 15m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Sustained, low flow detected in {{ $labels.household }}"
+      description: "Flow rate is constant for 15 minutes, indicative of a slow leak (toilet/drip)."
