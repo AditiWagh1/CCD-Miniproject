@@ -4,7 +4,7 @@ from prometheus_client import CollectorRegistry, Gauge, push_to_gateway
 
 # --- Configuration ---
 # Set the URL for the Prometheus Pushgateway (Team Member 2's domain)
-PUSHGATEWAY_URL = 'http://52.72.105.47:9091'  # Update this to your deployed URL
+PUSHGATEWAY_URL = 'http://54.82.105.142:9091'  # Update this to your deployed URL
 JOB_NAME = 'water_sensor_simulator'
 HOUSEHOLDS = {
     'A101': 'NORMAL',        # Normal usage pattern
