@@ -31,3 +31,15 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+  
+  # docker-compose.yml (Ensure this service is defined)
+alertmanager:
+  image: prom/alertmanager
+  container_name: alertmanager
+  ports:
+    - "9093:9093" # Exposes the Alertmanager UI
+  command:
+    # We need a basic config file for it to start properly
+    - '--config.file=/etc/alertmanager/config.yml' 
+  volumes:
+    - ./alertmanager.yml:/etc/alertmanager/config.yml # Mount the config file
