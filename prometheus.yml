@@ -12,3 +12,9 @@ scrape_configs:
     static_configs:
       - targets: ['pushgateway:9091'] # Use the service name
     honor_labels: true
+
+     # Check that this target is present and correct:
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093']
