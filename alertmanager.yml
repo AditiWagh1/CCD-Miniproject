@@ -1,0 +1,14 @@
+global:
+  # Optional: Define global email settings here if you wanted email alerts later
+
+# The main routing tree for alerts
+route:
+  # The initial recipient for all alerts that don't match specific criteria
+  receiver: 'null-receiver'
+
+# Definition of the receivers (notification endpoints)
+receivers:
+  - name: 'null-receiver'
+    # Since this is a minimal setup, we define the receiver but don't configure 
+    # an actual webhook (like email or Slack). The alert will be processed and visible 
+    # in the Alertmanager UI, proving the routing works.
